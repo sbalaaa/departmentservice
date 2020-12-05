@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "0afe3f57-001a-41d7-8c41-5eaaf030573c",
+		"name": "DepartmentTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8889/api/departments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8889/api/departments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"api",
+						"departments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8889/api/departments/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8889/api/departments/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"api",
+						"departments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8889/api/departments",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8889/api/departments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"api",
+						"departments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8889/api/departments/1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"number\":7,\"name\":\"TESTT\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8889/api/departments/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"api",
+						"departments",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8889/api/departments/1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8889/api/departments/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"api",
+						"departments",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "04f601cc-64d5-4d01-975d-e56587cf1dd4",
+		"name": "EmployeeTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8889/api/employees",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8889/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8889/api/employees/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8889/api/employees/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"api",
+						"employees",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8889/api/employees",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"FIRST\",\r\n    \"lastName\": \"LAST\",\r\n    \"gender\": \"M\",\r\n    \"age\": 25,\r\n    \"email\": \"TEST@gmail.com\",\r\n    \"phoneNumber\": \"1234567891\",\r\n    \"hireDate\": 1138213800000,\r\n    \"salary\": 8000,\r\n    \"departmentId\": {\r\n        \"number\": 2,\r\n        \"name\": \"MATHS\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8889/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8889/api/employees/7",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"FIRSTTTTTTT\",\n    \"lastName\": \"LAST\",\n    \"gender\": \"M\",\n    \"age\": 25,\n    \"email\": \"TEST@gmail.com\",\n    \"phoneNumber\": \"1234567891\",\n    \"hireDate\": 1138213800000,\n    \"salary\": 8000,\n    \"departmentId\": {\n        \"number\": 2,\n        \"name\": \"MATHS\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8889/api/employees/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"api",
+						"employees",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8889/api/employees/7",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"FIRSTTTTTTT\",\n    \"lastName\": \"LAST\",\n    \"gender\": \"M\",\n    \"age\": 25,\n    \"email\": \"TEST@gmail.com\",\n    \"phoneNumber\": \"1234567891\",\n    \"hireDate\": 1138213800000,\n    \"salary\": 8000,\n    \"departmentId\": {\n        \"number\": 2,\n        \"name\": \"MATHS\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8889/api/employees/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8889",
+					"path": [
+						"api",
+						"employees",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
