@@ -1,0 +1,66 @@
+http://localhost:8080/restservice/api/departments  GET 
+
+http://localhost:8080/restservice/api/departments/1  GET
+
+{
+	"number":1,
+	"name":"Physics",
+	"creatorName":"ADMIN"
+}
+
+
+http://localhost:8080/restservice/api/departments  POST
+
+{
+	"name":"Physicddd",
+	"creatorName":"ADMIN"
+}
+
+
+
+http://localhost:8080/restservice/api/departments/{departmentId}  PUT
+
+{
+	"name":"Physicsss",
+	"creatorName":"ADMIN"
+}
+
+
+
+http://localhost:8080/restservice/api/departments/{departmentId}  DELETE
+
+
+----------------------------
+
+http://localhost:8080/restservice/api/employees    GET 
+
+http://localhost:8080/restservice/api/employees/{employeeId}  GET 
+
+http://localhost:8080/restservice/api/employees POST
+
+{
+    "firstName": "Maniisssss",
+    "lastName": "Sankarrssss",
+    "gender": "M",
+    "age": 30,
+    "email": "le6@gmail.com",
+    "phoneNumber": "1234567896",
+    "hireDate": "03-01-2015",
+    "salary": 10000,
+    "createdBy": "ADMIN",
+    "departmentId": {
+        "number": 3
+    }
+}
+
+
+http://localhost:8080/restservice/api/employees/{employeeId} PUT
+
+{
+
+    "age": 30,
+    "salary": 30000
+}
+
+
+http://localhost:8080/restservice/api/employees/{employeeId} DELETE
