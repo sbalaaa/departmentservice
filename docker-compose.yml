@@ -12,6 +12,9 @@ services:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: springtraining
+      DATABASE_USER: root
+      DATABASE_PASSWORD: root
+      MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: root
       MYSQL_ROOT_HOST: '%'
   department-api:
