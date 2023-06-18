@@ -1,29 +1,31 @@
 version: '3'
 services:
-  mysql-db:
-    image: mysql
+  mysql:
+    container_name: mysql
+    image: mysql:8.0
     volumes:
       - db_data:/var/lib/app
     restart: always
     networks:
-      - service-mysql
+      - api
     ports:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: springtraining
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
   department-api:
     build:
       context: .
       dockerfile: Dockerfile
     restart: "unless-stopped"
     networks:
-      - service-mysql
+      - api
     ports:
-      - "9000:9000"
+      - "9080:9080"
     depends_on:
-      - "mysql-db"
+      - "mysql"
 volumes:
   db_data:
 networks:
-  service-mysql:
+  api:
