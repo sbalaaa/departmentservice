@@ -12,12 +12,14 @@ Docker Help:
 
 $ sudo docker container ls
 $ sudo docker image ls
-$ sudo docker rmi $(sudo docker images -a -q)
+$ sudo docker rmi $(sudo docker images -a -q) // Use it carefully
 
 Removing the container:
 $ sudo docker container rm $(sudo docker ps -aq) // remove all the containers
 $ sudo docker container rm 6c95ef1fbf05 bb2f23cdc05e 63f18c2214fe 038501e102b3
 $ sudo docker container rm 6c95ef1fbf05 bb2f23cdc05e 63f18c2214fe 038501e102b3
+
+$ sudo docker start container d0d77cf692d6
 
 
 Image:
@@ -58,3 +60,9 @@ Curl Requests:
 Links:
 https://stackoverflow.com/questions/56441497/docker-mysql-cant-connect-from-spring-boot-app-to-mysql-database
 
+
+
+Run the sonar from the command line:
+From Maven Side:
+mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=myAuthenticationToken 
+mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=b14696ba605f403ec7f1665a1af47bd8b528359d

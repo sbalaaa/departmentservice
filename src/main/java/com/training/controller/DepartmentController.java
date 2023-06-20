@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.training.exceptions.ClientErrorException;
 import com.training.exceptions.ErrorResponse;
 import com.training.service.DepartmentService;
@@ -39,6 +41,9 @@ public class DepartmentController {
 	
 	@Autowired
 	private DepartmentService service;
+	
+	@Autowired
+	private ObjectMapper objectMapper;
 	
     @GetMapping("/departments")
     @CrossOrigin(origins="*", maxAge = 3600)
@@ -71,8 +76,12 @@ public class DepartmentController {
     
     @PostMapping("/departments")
     @CrossOrigin(origins="*", maxAge = 3600)
-    public ResponseEntity<DepartmentVO> createDepartment(@Valid @RequestBody DepartmentVO departmentVO) {
+    public ResponseEntity<DepartmentVO> createDepartment(@Valid @RequestBody DepartmentVO departmentVO) throws JsonProcessingException {
     	System.out.println("createDepartment begin");
+    	
+    	log.debug("create request is ==> \n{}",
+				objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(departmentVO));
+    	
     	DepartmentVO department = service.createDepartment(departmentVO);
     	HttpHeaders responseHeaders = new HttpHeaders();
    	    responseHeaders.set("APPNAME", "DMS");
