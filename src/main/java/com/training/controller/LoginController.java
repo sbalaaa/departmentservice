@@ -24,10 +24,11 @@ public class LoginController {
 	
 	@PostMapping("/login")
 	@CrossOrigin(origins="*", maxAge = 3600)
-    public ResponseEntity<String> checkValidUser(@Valid @RequestBody LoginVO vo) {
+    public ResponseEntity<LoginVO> checkValidUser(@Valid @RequestBody LoginVO vo) {
 		log.info("checkValidUser begin");
     	if(vo.getUserName().equals("admin") && vo.getPassword().equals("password")) {
-    		return new ResponseEntity<String>("SUCCESS",HttpStatus.OK);
+    		vo.setStatus("SUCCESS");
+    		return new ResponseEntity<LoginVO>(vo,HttpStatus.OK);
     	} else {
     		throw new ClientErrorException("User Name and Password is not valid");
     	}

@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.training.exceptions.ErrorResponse;
 import com.training.service.EmployeeService;
 import com.training.vo.EmployeeVO;
@@ -35,6 +37,9 @@ public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService;
 	
+	@Autowired
+	private ObjectMapper objectMapper;
+	
     @CrossOrigin(origins="*", maxAge = 3600)
     @GetMapping("/employees")
 	public ResponseEntity<List<EmployeeVO>> getAllEmployees() {
@@ -45,8 +50,11 @@ public class EmployeeController {
 	
     @CrossOrigin(origins="*")
     @PostMapping("/employees")
-	public EmployeeVO createDepartment(@Valid @RequestBody EmployeeVO employee) {
+	public EmployeeVO createEmployee(@Valid @RequestBody EmployeeVO employee) throws JsonProcessingException {
     	log.info("Start - createEmployee");
+    	
+    	log.info("create request is ==> \n{}",
+				objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(employee));
 		return employeeService.createEmployee(employee);
 	}
 	
@@ -67,9 +75,13 @@ public class EmployeeController {
     @CrossOrigin(origins="*", maxAge = 3600)
     @PutMapping("/employees/{id}")
 	public ResponseEntity<EmployeeVO> updateEmployee(@PathVariable(value = "id") int employeeId, 
-	                                       @Valid @RequestBody EmployeeVO employeeDetails) {
+	                                       @Valid @RequestBody EmployeeVO employeeDetails) throws JsonProcessingException {
     	log.info("Start - updateEmployee with id--> " + employeeId);
-		EmployeeVO employee = employeeService.updateEmployee(employeeId,employeeDetails);
+		
+    	log.info("update employee request is ==> \n{}",
+				objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(employeeDetails));
+    	
+    	EmployeeVO employee = employeeService.updateEmployee(employeeId,employeeDetails);
 	    if(employee == null) {
 	        return ResponseEntity.notFound().build();
 	    }
@@ -78,7 +90,7 @@ public class EmployeeController {
     
     @CrossOrigin(origins="*", maxAge = 3600)
     @DeleteMapping("/employees/{id}")
-	public ResponseEntity<EmployeeVO> deleteDepartment(@PathVariable(value = "id") int employeeId) {
+	public ResponseEntity<EmployeeVO> deleteEmployee(@PathVariable(value = "id") int employeeId) {
     	log.info("Start - deleteEmployee with Id --> " + employeeId );
 		EmployeeVO employee = employeeService.deleteEmployee(employeeId);
 	    if(employee == null) {

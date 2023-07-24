@@ -1,0 +1,21 @@
+io.fabric8 docker-maven-plugin
+
+https://springframework.guru/fabric8-docker-maven-plugin/
+
+https://github.com/spotify/dockerfile-maven
+
+
+gmavenplus-plugin
+To generate docker file from docker file template 
+
+io.fabric8 docker-maven-plugin
+mvn clean package doccker:build
+
+mvn docker:stop
+mvn docker:start
+
+mvn docker:push
+----------
+Running a Docker image from Maven plugin
+
+mvn docker:run

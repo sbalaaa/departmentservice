@@ -79,7 +79,7 @@ public class DepartmentController {
     public ResponseEntity<DepartmentVO> createDepartment(@Valid @RequestBody DepartmentVO departmentVO) throws JsonProcessingException {
     	System.out.println("createDepartment begin");
     	
-    	log.debug("create request is ==> \n{}",
+    	log.info("create request is ==> \n{}",
 				objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(departmentVO));
     	
     	DepartmentVO department = service.createDepartment(departmentVO);
@@ -92,7 +92,11 @@ public class DepartmentController {
     
     @PutMapping("/departments/{departmentId}")
     @CrossOrigin(origins="*", maxAge = 3600)
-    public DepartmentVO updateDepartment(@PathVariable int departmentId,@Valid @RequestBody DepartmentVO departmentDetails) {
+    public DepartmentVO updateDepartment(@PathVariable int departmentId,@Valid @RequestBody DepartmentVO departmentDetails) throws JsonProcessingException {
+    	
+    	log.info("update department request is ==> \n{}",
+				objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(departmentDetails));
+    	
     	DepartmentVO department =  service.updateDepartment(departmentId, departmentDetails);
 		return department;
 	}

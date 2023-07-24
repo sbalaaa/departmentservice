@@ -6,14 +6,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.training.dao.EmployeeRepository;
+import com.training.entities.Department;
 import com.training.entities.Employee;
 import com.training.exceptions.ClientErrorException;
-import com.training.vo.DepartmentVO;
 import com.training.vo.EmployeeVO;
 
 @Service
@@ -56,6 +54,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 	    	updateEmployee = employee.get();
 	    	updateEmployee.setSalary(employeeDetails.getSalary());
 	    	updateEmployee.setAge(employeeDetails.getAge());
+	    	
+	    	if(employeeDetails.getDepartmentId()!=null) {
+	    		Department department = new Department();
+	    		department.setDepartmentId(employeeDetails.getDepartmentId().getNumber());
+	    		updateEmployee.setDepartmentId(department);
+	    	}
 	    	updateEmployee = employeeRepository.save(updateEmployee);
 	    }
 		return updateEmployee.getEmployeeVO();
