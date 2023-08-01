@@ -38,7 +38,7 @@ public class EmployeeVO {
 	
 	private String phoneNumber;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
 	private LocalDate hireDate;
@@ -56,6 +56,7 @@ public class EmployeeVO {
 		this.gender = employee.getGender();
 		this.age = employee.getAge();
 		this.email = employee.getEmail();
+		this.phoneNumber = employee.getPhoneNumber();
 		this.hireDate = employee.getHireDate();
 		this.salary = employee.getSalary();
 		this.createdBy = employee.getCreatedBy();
