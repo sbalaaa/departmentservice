@@ -24,6 +24,8 @@ public class LoginVO  {
 	
 	@NotEmpty(message ="Enter Password")
 	private String password;
+	
+	private String status;
 
 
 }
